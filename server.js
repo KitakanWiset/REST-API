@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 // const routeUsers = require('./Routes/users')
 
 const { readdirSync } = require('fs')
