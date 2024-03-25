@@ -1,3 +1,5 @@
+const users_model = require("../Models/users_model")
+
 exports.list = async(req, res) => {
     try{
         res.send('Hello users controllers')
@@ -14,9 +16,12 @@ exports.list_one = async(req, res) => {
     }
 }
 
-exports.users_insert= async(req, res) => {
+exports.users_insert = async(req, res) => {
     try{
-        res.send('Hello users controllers user one')
+        console.log(req.body)
+        const users = await users_model(req.body).save()
+
+        res.send(users)
     }catch(err){
         res.status(500).send('Server Error')
     }
